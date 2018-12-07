@@ -1,0 +1,18 @@
+$operations: (
+    addition: green,
+    subtraction:black,
+    multiplication: #11aacc,
+    division: purple
+);
+
+@mixin shadow {
+    @each $name, $hex in $operations{
+        &-#{$name} {
+            box-shadow: 4px 6px 8px $hex;
+        }
+    }
+}
+
+.shadow {
+    @include shadow;
+} 

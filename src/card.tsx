@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import equals from 'ramda/es/equals';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './card.scss'
 import { Operands, ConfigEntry } from './core'
 
 interface State {
@@ -51,7 +52,7 @@ export class Card extends Component<Props, State> {
     const { config, operands } = this.props;
     return (
 
-      <div className="card  ">
+      <div className={`card shadow-${config.type} rounded`}>
         <div className="card-header"><h3>{config.title}</h3> </div>
         <div className="card-body">
           <div className="row">

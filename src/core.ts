@@ -3,14 +3,14 @@ import { randomInteger } from "./utils";
 export type OperationKey = 'addition' | 'subtraction' | 'multiplication' | 'division';
 export type OpSymbol = '+' | '-' | 'x' | '/'
 
-export type ConfigEntry = { title: string, symbol: OpSymbol }
+export type ConfigEntry = { title: string, symbol: OpSymbol, type: OperationKey }
 
 export type OpConfig = { [P in OperationKey]: ConfigEntry };
 export const config: OpConfig = {
-  addition: { title: 'Addition', symbol: '+' },
-  subtraction: { title: 'Subtraction', symbol: '-' },
-  multiplication: { title: 'Multiplication', symbol: 'x' },
-  division: { title: 'Division', symbol: '/' }
+  addition: { title: 'Addition', symbol: '+', type:'addition' },
+  subtraction: { title: 'Subtraction', symbol: '-' , type:'subtraction'},
+  multiplication: { title: 'Multiplication', symbol: 'x', type:'multiplication' },
+  division: { title: 'Division', symbol: '/', type:'division' }
 }
 export interface Operands { operand1: number, operand2: number }
 type OperandsMap = { [P in OperationKey]: () => Operands }
