@@ -17,9 +17,13 @@ interface Props {
 
 export class Card extends Component<Props, State> {
 
+  private _input:React.RefObject<HTMLInputElement>;
   constructor(props: any) {
     super(props);
     this.state ={answer:''};
+
+    this._input = React.createRef<HTMLInputElement>();
+
     this.onAnswerChange = this.onAnswerChange.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
 
@@ -30,6 +34,7 @@ export class Card extends Component<Props, State> {
       this.setState({
         answer:''
       })
+      this._input.current!.focus();
     }
   }
 
@@ -68,7 +73,14 @@ export class Card extends Component<Props, State> {
           <div className="row">
             <div className="col">
               <hr />
-              <input autoFocus type="text" className="form-control text-right font-weight-bold" value={this.state.answer || ''} onChange={this.onAnswerChange} onKeyDown={this.onKeyDown} />
+              <input autoFocus 
+                type="text" 
+                className="form-control text-right font-weight-bold" 
+                value={this.state.answer || ''} 
+                onChange={this.onAnswerChange} 
+                onKeyDown={this.onKeyDown}
+                ref={this._input}
+                />
             </div>
           </div>
         </div>
