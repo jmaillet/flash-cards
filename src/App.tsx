@@ -71,7 +71,7 @@ class App extends Component<any, State>{
         </nav>
         <div className="row justify-content-center mb-3">
 
-          <div className="col-3">
+          <div className="col-lg-3 col-md-5 col-sm-6 col-12">
             <Card config={config[selectedOperation]} operands={operands} onAnswer={this.onAnswerSubmitted.bind(this)} />
           </div>
         </div>
